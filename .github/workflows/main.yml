@@ -13,4 +13,4 @@ jobs:
         with:
           node-version: 18
       - run: npm install mineflayer
-      - run: node bot.js
+      - run: node bot.js # 這裡已經幫你改成 bot.js 了
