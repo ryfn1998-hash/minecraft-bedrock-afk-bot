@@ -1,7 +1,9 @@
 {
-  "host": "azmunaabg.aternos.me",
-  "port": 29497,
-  "version": "1.21.10",
-  "username": "ServerGuard",
-  "offline": true
+  "host": "213.239.194.171",
+  "port": 25814,
+  "version": "1.21.11",
+  "username": "Edjejdc",
+  "offline": true,
+  "stay_afk": true,
+  "auto_reconnect": true
 }
