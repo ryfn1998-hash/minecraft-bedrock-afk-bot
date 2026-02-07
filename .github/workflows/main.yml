@@ -1,16 +1,23 @@
-name: Server_24h_Bot
-on:
-  schedule:
-    - cron: '*/15 * * * *'
-  workflow_dispatch:
+const mineflayer = require('mineflayer')
 
-jobs:
-  run-bot:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm install mineflayer
-      - run: node bot.js # 這裡已經幫你改成 bot.js 了
+const bot = mineflayer.createBot({
+  host: 'ryfn.falix.gg',    // 伺服器 Java IP
+  port: 25565,              // Java 版預設 Port
+  username: 'Furjd2134',    // 你的機器人名字
+  version: false,           // 設為 false 會自動偵測版本
+})
+
+// 當機器人成功登入
+bot.on('login', () => {
+  console.log('機器人 Furjd2134 已成功進入星河伺服器！')
+})
+
+// 簡易防踢機制：每 10 分鐘隨機跳一下或說話
+setInterval(() => {
+  bot.setControlState('jump', true)
+  setTimeout(() => bot.setControlState('jump', false), 500)
+}, 600000)
+
+// 錯誤處理，防止腳本崩潰
+bot.on('error', (err) => console.log('發生錯誤：' + err))
+bot.on('kicked', (reason) => console.log('被伺服器踢出，原因：' + reason))
