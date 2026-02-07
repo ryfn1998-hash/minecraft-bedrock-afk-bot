@@ -13,4 +13,4 @@ jobs:
         with:
           node-version: 18
       - run: npm install mineflayer
-      - run: node index.js
+      - run: node bot.js
