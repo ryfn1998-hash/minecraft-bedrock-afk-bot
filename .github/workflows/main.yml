@@ -1,0 +1,46 @@
+name: 24h_Server_Guardian
+on:
+  schedule:
+    - cron: '*/15 * * * *' # 每 15 分鐘自動檢查一次
+  workflow_dispatch:      # 允許手動啟動
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 複製代碼
+        uses: actions/checkout@v3
+
+      - name: 安裝 Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 安裝機器人套件
+        run: npm install mineflayer
+
+      - name: 啟動掛機機器人
+        run: node index.js # 假設你的主程式檔名是 index.js
+name: 24h_Server_Guardian
+on:
+  schedule:
+    - cron: '*/15 * * * *' # 每 15 分鐘自動檢查一次
+  workflow_dispatch:      # 允許手動啟動
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 複製代碼
+        uses: actions/checkout@v3
+
+      - name: 安裝 Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 安裝機器人套件
+        run: npm install mineflayer
+
+      - name: 啟動掛機機器人
+        run: node index.js # 假設你的主程式檔名是 index.js
